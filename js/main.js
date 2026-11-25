@@ -105,12 +105,9 @@
     if (!card) return;
     const idx = el.cards.indexOf(card);
     // "View project" always opens that project, on any card.
-    if (e.target.closest('[data-open]') || isStatic) {
-      if (e.target.closest('[data-open]') || e.target.closest('.card__btn')) openProject(idx);
-      return;
-    }
-    // Clicking the body of a side card brings it to the front; the front card opens.
-    if (card.dataset.front === '1') openProject(idx);
+    if (e.target.closest('[data-open]')) return openProject(idx);
+    // Clicking the body of a card: the front one opens, a side one comes to the front.
+    if (isStatic || card.dataset.front === '1') openProject(idx);
     else scrollTo({ top: el.work.offsetTop + idx * innerHeight, behavior: 'smooth' });
   });
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
