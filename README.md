@@ -31,6 +31,10 @@ Then open http://localhost:8000.
 
 - Case studies and career steps: the `PROJECTS` and `STEPS` arrays at the top of `js/main.js`.
 - Hero details, toolkit and contact: `index.html`.
-- Résumé download: replace `assets/Kirubel_Negash_Resume.pdf`.
+- Résumé download: `assets/Kirubel_Negash_Resume.pdf`. Its source is `resume-src/resume.html`; to regenerate the PDF:
+
+  ```bash
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --print-to-pdf=assets/Kirubel_Negash_Resume.pdf "file://$PWD/resume-src/resume.html"
+  ```
 
 On screens narrower than 900px, or when the visitor prefers reduced motion, the page switches to a static stacked layout with no scroll animations.

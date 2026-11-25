@@ -162,7 +162,7 @@ a:hover { opacity: .7; }
 
 /* ---------- Toolkit ---------- */
 .toolkit { padding: 120px 8% 80px; max-width: 1200px; margin: 0 auto; }
-.toolkit__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.toolkit__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 48px; }
 .tk { border-top: 1px solid var(--line); padding-top: 12px; }
 .tk__label { font-size: 9px; letter-spacing: .14em; color: var(--muted); }
 .tk p { font-size: 19px; line-height: 1.45; color: var(--ink-2); margin: 10px 0 0; }

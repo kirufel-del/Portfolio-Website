@@ -27,14 +27,14 @@
       ],
     },
     {
-      name: 'Automation in Identity Ops', meta: 'ML-driven workflows', stat: 'Login abandonment −12%',
+      name: 'AI & Automation in Identity Ops', meta: 'Claude · Agentic AI · ML workflows', stat: 'Login abandonment −12%',
       line: 'Automation that removes friction', em: 'users never notice.',
-      tags: 'ML automation / Journey mapping / Friction −20%', word: 'FLOW',
+      tags: 'Agentic AI / Journey mapping / Friction −20%', word: 'AGENT',
       bg: 'linear-gradient(160deg,#dfe8e1,#c4d5c9)', ink: '#1f2a23',
       details: [
         'Evaluated and embedded ML-driven workflow automation into operations, cutting login abandonment by 12%.',
         'Mapped user journeys and drop-off points to reduce user friction by 20%.',
-        'Owned the project lifecycle end to end: scope, risk, vendor coordination, and executive status reporting.',
+        'Piloted generative AI, agentic tools (Claude) and low-code, prompt-based interfaces in Ping Identity and Saviynt, with human review of AI output before release.',
       ],
     },
     {
