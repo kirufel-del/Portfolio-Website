@@ -91,23 +91,27 @@
 
   // ---------- Project modal ----------
   const modal = $('[data-modal]');
-  deck.addEventListener('click', e => {
-    const card = e.target.closest('.card');
-    if (!card) return;
-    const idx = el.cards.indexOf(card);
-    // In the 3D carousel, clicking a side card brings it to the front first.
-    if (!isStatic && card.dataset.front !== '1') {
-      scrollTo({ top: el.work.offsetTop + idx * innerHeight, behavior: 'smooth' });
-      return;
-    }
-    if (!e.target.closest('[data-open]')) return;
+  const openProject = idx => {
     const p = PROJECTS[idx];
     $('[data-m-meta]').textContent = p.meta.toUpperCase();
     $('[data-m-title]').textContent = p.name;
     $('[data-m-stat]').textContent = p.stat;
     $('[data-m-list]').innerHTML = p.details.map(d => `<li>${esc(d)}</li>`).join('');
     $('[data-m-tags]').textContent = p.tags;
-    modal.showModal();
+    if (!modal.open) modal.showModal();
+  };
+  deck.addEventListener('click', e => {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    const idx = el.cards.indexOf(card);
+    // "View project" always opens that project, on any card.
+    if (e.target.closest('[data-open]') || isStatic) {
+      if (e.target.closest('[data-open]') || e.target.closest('.card__btn')) openProject(idx);
+      return;
+    }
+    // Clicking the body of a side card brings it to the front; the front card opens.
+    if (card.dataset.front === '1') openProject(idx);
+    else scrollTo({ top: el.work.offsetTop + idx * innerHeight, behavior: 'smooth' });
   });
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 
@@ -173,9 +177,10 @@
       c.style.transform = `translateX(${d * 68}%) translateZ(${-ad * 220}px) rotateY(${-d * 22}deg)`;
       c.style.opacity = Math.max(0, 1 - ad * .4);
       c.style.zIndex = 10 - Math.round(ad * 2);
-      c.dataset.front = ad < .5 ? '1' : '0';
+      const front = Math.round(f) === i;
+      c.dataset.front = front ? '1' : '0';
       c.style.pointerEvents = c.style.opacity > .05 ? 'auto' : 'none';
-      c.style.cursor = ad < .5 ? '' : 'pointer';
+      c.style.cursor = 'pointer';
     });
     el.dots.forEach((d, i) => (d.style.opacity = Math.round(f) === i ? 1 : .25));
 
