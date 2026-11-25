@@ -217,7 +217,7 @@ a:hover { opacity: .7; }
 .is-static .scroll-hint { display: none; }
 .is-static .work .stage { padding: 80px 6%; }
 .is-static .deck { height: auto; width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 20px; }
-.is-static .card { position: relative; inset: auto; min-height: 340px; transform: none !important; opacity: 1 !important; }
+.is-static .card { position: relative; inset: auto; min-height: 340px; transform: none !important; opacity: 1 !important; pointer-events: auto !important; cursor: auto !important; }
 .is-static .dots { display: none; }
 .is-static .step { transform: none !important; opacity: 1 !important; }
 .is-static .endbadge { transform: none !important; }
